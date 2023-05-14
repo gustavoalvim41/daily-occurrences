@@ -46,6 +46,48 @@ function Occurrences(): JSX.Element {
               <td>New York, New York(NY), 10003</td>
               <td>Finished</td>
             </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
+            <tr>
+              <td>2023/05/14</td>
+              <td>Person 1 And Person 2</td>
+              <td>Animal At Risk</td>
+              <td>New York, New York(NY), 10003</td>
+              <td>Finished</td>
+            </tr>
           </tbody>
         </table>
       </div>
