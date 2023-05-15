@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './styles.sass'
 import db from '../../database'
+import { Link } from 'react-router-dom'
 
 type OccurrenceProps = {
   id: number
@@ -27,7 +28,7 @@ function Occurrences(): JSX.Element {
   return (
     <div className="occurrences">
       <div className="head">
-        <a>New Occurrences</a>
+        <Link to="/register">New Occurrences</Link>
       </div>
       <div className="content">
         <table>
