@@ -34,12 +34,12 @@ function Occurrences(): JSX.Element {
         <table>
           <thead>
             <tr>
-              <th>date</th>
-              <th>team</th>
-              <th>type</th>
-              <th>address</th>
-              <th>receipt</th>
-              <th>status</th>
+              <th>Data</th>
+              <th>Equipe</th>
+              <th>Tipo</th>
+              <th>Endereço</th>
+              <th>Recebimento</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
