@@ -37,8 +37,6 @@ function Register(): JSX.Element {
       <div className="form">
         <div className="row">
           <input type="date" value={selectedDate} onChange={handleDateChange} />
-        </div>
-        <div className="row">
           <input type="time" value={selectedTime} onChange={handleTimeChange} />
         </div>
         <div className="row">
