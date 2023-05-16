@@ -8,15 +8,15 @@ type OccurrenceProps = {
   id?: number
   date: string
   team: string
-  type: string
+  incident: string
   address: string
   receipt: string
-  status: string
+  situation: string
 }
 
 const db = new Dexie('daily-occurrences') as mydb
 db.version(2).stores({
-  occurrences: '++id, date, team, type, address, receipt, status'
+  occurrences: '++id, date, team, incident, address, receipt, situation'
 })
 
 export default db

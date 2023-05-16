@@ -7,10 +7,10 @@ type OccurrenceProps = {
   id: number
   date: string
   team: string
-  type: string
+  incident: string
   address: string
   receipt: string
-  status: string
+  situation: string
 }
 
 function Occurrences(): JSX.Element {
@@ -28,29 +28,25 @@ function Occurrences(): JSX.Element {
   return (
     <div className="occurrences">
       <div className="head">
-        <Link to="/register">New Occurrences</Link>
+        <Link to="/register">Nova Ocorrência</Link>
       </div>
       <div className="content">
         <table>
           <thead>
             <tr>
               <th>Data</th>
-              <th>Equipe</th>
-              <th>Tipo</th>
+              <th>Incidente</th>
               <th>Endereço</th>
-              <th>Recebimento</th>
-              <th>Status</th>
+              <th>Situação</th>
             </tr>
           </thead>
           <tbody>
             {occurrences.map((occurrence) => (
               <tr key={occurrence.id}>
                 <td>{occurrence.date}</td>
-                <td>{occurrence.team}</td>
-                <td>{occurrence.type}</td>
+                <td>{occurrence.incident}</td>
                 <td>{occurrence.address}</td>
-                <td>{occurrence.receipt}</td>
-                <td>{occurrence.status}</td>
+                <td>{occurrence.situation}</td>
               </tr>
             ))}
           </tbody>
