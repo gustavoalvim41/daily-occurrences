@@ -111,6 +111,7 @@ function Register(): JSX.Element {
         </div>
         <div className="row">
           <select value={selectedType} onChange={handleSelectTypeChange}>
+            <option>Selecione um tipo...</option>
             <option value="Animal em Risco">Animal em Risco</option>
             <option value="Corte de Árvore">Corte de Árvore</option>
             <option value="Óleo em Via">Óleo em Via</option>
@@ -126,10 +127,12 @@ function Register(): JSX.Element {
         </div>
         <div className="row">
           <select value={selectedReceipt} onChange={handleSelectReceiptChange}>
+            <option>Selecione um recebimento...</option>
             <option value="Via Cobom">Via Cobom</option>
             <option value="Via Plantão">Via Plantão</option>
           </select>
           <select value={selectedStatus} onChange={handleSelectStatusChange}>
+            <option>Selecione um status...</option>
             <option value="Finalizada">Finalizada</option>
             <option value="Aguardando">Aguardando</option>
           </select>
