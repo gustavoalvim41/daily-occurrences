@@ -79,7 +79,7 @@ function Register(): JSX.Element {
   function handleRegister(): void {
     db.occurrences.add({
       date: formattedDateTime,
-      team: selectedResponsibleOne + ' x ' + selectedResponsibleTwo,
+      team: selectedResponsibleOne + '/' + selectedResponsibleTwo,
       incident: selectedIncident,
       address: selectedAddress,
       receipt: selectedReceipt,

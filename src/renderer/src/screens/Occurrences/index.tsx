@@ -28,16 +28,16 @@ function Occurrences(): JSX.Element {
   return (
     <div className="occurrences">
       <div className="head">
-        <Link to="/register">Nova Ocorrência</Link>
+        <Link to="/register">nova ocorrência</Link>
       </div>
       <div className="content">
         <table>
           <thead>
             <tr>
-              <th>Data</th>
-              <th>Incidente</th>
-              <th>Endereço</th>
-              <th>Situação</th>
+              <th>data</th>
+              <th>incidente</th>
+              <th>endereço</th>
+              <th>situação</th>
             </tr>
           </thead>
           <tbody>
