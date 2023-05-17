@@ -12,6 +12,7 @@ type OccurrenceProps = {
   address: string
   receipt: string
   situation: string
+  observation: string
 }
 
 function Occurrences(): JSX.Element {

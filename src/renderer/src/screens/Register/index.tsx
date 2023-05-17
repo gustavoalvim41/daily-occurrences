@@ -65,6 +65,12 @@ function Register(): JSX.Element {
     setSelectedSituation(event.target.value)
   }
 
+  const [selectedObservation, setSelecteddObservation] = useState('')
+
+  const handledObservationChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    setSelecteddObservation(event.target.value)
+  }
+
   function clearInputs(): void {
     setSelectedDate('')
     setSelectedTime('')
@@ -74,6 +80,7 @@ function Register(): JSX.Element {
     setSelectedAddress('')
     setSelectedReceipt('')
     setSelectedSituation('')
+    setSelecteddObservation('')
   }
 
   function handleRegister(): void {
@@ -93,7 +100,8 @@ function Register(): JSX.Element {
         incident: selectedIncident.toLowerCase(),
         address: selectedAddress.toLowerCase(),
         receipt: selectedReceipt.toLowerCase(),
-        situation: selectedSituation.toLowerCase()
+        situation: selectedSituation.toLowerCase(),
+        observation: selectedObservation.toLowerCase()
       })
     }
     clearInputs()
@@ -149,7 +157,14 @@ function Register(): JSX.Element {
           </select>
         </div>
         <div className="row">
-          <textarea placeholder="obs..." cols={5} rows={10} maxLength={72}></textarea>
+          <textarea
+            placeholder="obs..."
+            cols={5}
+            rows={10}
+            maxLength={72}
+            value={selectedObservation}
+            onChange={handledObservationChange}
+          ></textarea>
         </div>
         <div className="row">
           <button onClick={handleRegister}>register</button>
