@@ -4,9 +4,10 @@ import db from '../../database'
 import { Link } from 'react-router-dom'
 
 type OccurrenceProps = {
-  id: number
+  id?: number
   date: string
-  team: string
+  responsibleOne: string
+  responsibleTwo: string
   incident: string
   address: string
   receipt: string

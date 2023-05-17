@@ -77,14 +77,25 @@ function Register(): JSX.Element {
   }
 
   function handleRegister(): void {
-    db.occurrences.add({
-      date: formattedDateTime,
-      team: selectedResponsibleOne + '/' + selectedResponsibleTwo,
-      incident: selectedIncident,
-      address: selectedAddress,
-      receipt: selectedReceipt,
-      situation: selectedSituation
-    })
+    if (
+      formattedDateTime !== '' &&
+      selectedResponsibleOne !== '' &&
+      selectedResponsibleTwo !== '' &&
+      selectedIncident !== '' &&
+      selectedAddress !== '' &&
+      selectedReceipt !== '' &&
+      selectedSituation !== ''
+    ) {
+      db.occurrences.add({
+        date: formattedDateTime,
+        responsibleOne: selectedResponsibleOne.toLowerCase(),
+        responsibleTwo: selectedResponsibleTwo.toLowerCase(),
+        incident: selectedIncident.toLowerCase(),
+        address: selectedAddress.toLowerCase(),
+        receipt: selectedReceipt.toLowerCase(),
+        situation: selectedSituation.toLowerCase()
+      })
+    }
     clearInputs()
   }
 
@@ -136,6 +147,9 @@ function Register(): JSX.Element {
             <option value="Finalizada">Finalizada</option>
             <option value="Aguardando">Aguardando</option>
           </select>
+        </div>
+        <div className="row">
+          <textarea placeholder="obs..." cols={5} rows={10} maxLength={72}></textarea>
         </div>
         <div className="row">
           <button onClick={handleRegister}>register</button>
