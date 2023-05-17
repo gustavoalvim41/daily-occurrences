@@ -109,12 +109,12 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         observation: selectedObservation.toLowerCase()
       })
       setShowAlertSucess(true)
-      setTimeout(() => {
+      setInterval(() => {
         setShowAlertSucess(false)
       }, 3000)
     } else {
       setShowAlertError(true)
-      setTimeout(() => {
+      setInterval(() => {
         setShowAlertError(false)
       }, 3000)
     }
@@ -169,8 +169,10 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         </select>
         <select value={selectedSituation} onChange={handleSelectSituationChange}>
           <option>Selecione uma situação...</option>
-          <option value="Finalizado">Finalizado</option>
-          <option value="Aguardando">Aguardando</option>
+          <option value="finalizado">finalizado</option>
+          <option value="aguardando">aguardando</option>
+          <option value="reagendado">reagendado</option>
+          <option value="sem contato">sem contato</option>
         </select>
       </div>
       <div className="row">

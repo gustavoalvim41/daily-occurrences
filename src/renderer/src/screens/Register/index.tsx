@@ -10,9 +10,20 @@ function Register(): JSX.Element {
 
   return (
     <div className="register">
-      {showAlertSucess && <Alert type="sucess" mensage="Cadastro realizado com sucesso!" />}
-      {showAlertError && <Alert type="error" mensage="Erro ao realizar o cadastro!" />}
-
+      {showAlertSucess && (
+        <Alert
+          type="sucess"
+          mensage="Cadastro realizado com sucesso!"
+          onClick={(): void => setShowAlertSucess(false)}
+        />
+      )}
+      {showAlertError && (
+        <Alert
+          type="error"
+          mensage="Preencha todos os campos!"
+          onClick={(): void => setShowAlertError(false)}
+        />
+      )}
       <Form setShowAlertSucess={setShowAlertSucess} setShowAlertError={setShowAlertError} />
     </div>
   )
