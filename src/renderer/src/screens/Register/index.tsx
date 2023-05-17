@@ -30,15 +30,15 @@ function Register(): JSX.Element {
     }
   }
 
-  const [selectedResponsibleOne, setSelectedResponsibleOne] = useState('')
-  const [selectedResponsibleTwo, setSelectedResponsibleTwo] = useState('')
+  const [selectedParticipantOne, setSelectedParticipantOne] = useState('')
+  const [selectedParticipantTwo, setSelectedParticipantTwo] = useState('')
 
-  function handleResponsibleOneChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    setSelectedResponsibleOne(event.target.value)
+  function handleParticipantOneChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    setSelectedParticipantOne(event.target.value)
   }
 
-  function handleResponsibleTwoChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    setSelectedResponsibleTwo(event.target.value)
+  function handleParticipantTwoChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    setSelectedParticipantTwo(event.target.value)
   }
 
   const [selectedIncident, setSelectedIncident] = useState('')
@@ -74,8 +74,8 @@ function Register(): JSX.Element {
   function clearInputs(): void {
     setSelectedDate('')
     setSelectedTime('')
-    setSelectedResponsibleOne('')
-    setSelectedResponsibleTwo('')
+    setSelectedParticipantOne('')
+    setSelectedParticipantTwo('')
     setSelectedIncident('')
     setSelectedAddress('')
     setSelectedReceipt('')
@@ -86,8 +86,8 @@ function Register(): JSX.Element {
   function handleRegister(): void {
     if (
       formattedDateTime !== '' &&
-      selectedResponsibleOne !== '' &&
-      selectedResponsibleTwo !== '' &&
+      selectedParticipantOne !== '' &&
+      selectedParticipantTwo !== '' &&
       selectedIncident !== '' &&
       selectedAddress !== '' &&
       selectedReceipt !== '' &&
@@ -95,8 +95,8 @@ function Register(): JSX.Element {
     ) {
       db.occurrences.add({
         date: formattedDateTime,
-        responsibleOne: selectedResponsibleOne.toLowerCase(),
-        responsibleTwo: selectedResponsibleTwo.toLowerCase(),
+        participantOne: selectedParticipantOne.toLowerCase(),
+        participantTwo: selectedParticipantTwo.toLowerCase(),
         incident: selectedIncident.toLowerCase(),
         address: selectedAddress.toLowerCase(),
         receipt: selectedReceipt.toLowerCase(),
@@ -117,23 +117,28 @@ function Register(): JSX.Element {
         <div className="row">
           <input
             type="text"
-            placeholder="Responsável 1"
-            value={selectedResponsibleOne}
-            onChange={handleResponsibleOneChange}
+            placeholder="Participante 1"
+            value={selectedParticipantOne}
+            onChange={handleParticipantOneChange}
           />
           <input
             type="text"
-            placeholder="Responsável 2"
-            value={selectedResponsibleTwo}
-            onChange={handleResponsibleTwoChange}
+            placeholder="Participante 2"
+            value={selectedParticipantTwo}
+            onChange={handleParticipantTwoChange}
           />
         </div>
         <div className="row">
           <select value={selectedIncident} onChange={handleSelectIncidentChange}>
             <option>Selecione um incidente...</option>
-            <option value="Animal em Risco">Animal em Risco</option>
-            <option value="Corte de Árvore">Corte de Árvore</option>
-            <option value="Óleo em Via">Óleo em Via</option>
+            <option value="corte de árvore">corte de árvore</option>
+            <option value="fogo em residência">fogo em residência</option>
+            <option value="fogo em estabelecimento">fogo em estabelecimento</option>
+            <option value="fogo em vegetação">fogo em vegetação</option>
+            <option value="óleo em via">óleo em via</option>
+            <option value="inseto agressivo">inseto agressivo</option>
+            <option value="animal em risco">animal em risco</option>
+            <option value="isolamento de área">isolamento de área</option>
           </select>
         </div>
         <div className="row">
@@ -152,7 +157,7 @@ function Register(): JSX.Element {
           </select>
           <select value={selectedSituation} onChange={handleSelectSituationChange}>
             <option>Selecione uma situação...</option>
-            <option value="Finalizada">Finalizada</option>
+            <option value="Finalizado">Finalizado</option>
             <option value="Aguardando">Aguardando</option>
           </select>
         </div>
