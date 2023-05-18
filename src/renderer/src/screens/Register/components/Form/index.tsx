@@ -133,6 +133,8 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
           value={selectedParticipantOne}
           onChange={handleParticipantOneChange}
         />
+      </div>
+      <div className="row">
         <input
           type="text"
           placeholder="Participante 2"
@@ -142,7 +144,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <select value={selectedIncident} onChange={handleSelectIncidentChange}>
-          <option>Selecione um incidente...</option>
+          <option>Incidente</option>
           <option value="corte de árvore">corte de árvore</option>
           <option value="fogo em residência">fogo em residência</option>
           <option value="fogo em estabelecimento">fogo em estabelecimento</option>
@@ -163,12 +165,14 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <select value={selectedReceipt} onChange={handleSelectReceiptChange}>
-          <option>Selecione um recebimento...</option>
+          <option>Recebimento Via</option>
           <option value="Via Cobom">Via Cobom</option>
           <option value="Via Plantão">Via Plantão</option>
         </select>
+      </div>
+      <div className="row">
         <select value={selectedSituation} onChange={handleSelectSituationChange}>
-          <option>Selecione uma situação...</option>
+          <option>Situação</option>
           <option value="finalizado">finalizado</option>
           <option value="aguardando">aguardando</option>
           <option value="reagendado">reagendado</option>
@@ -177,7 +181,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <textarea
-          placeholder="obs..."
+          placeholder="Observação"
           cols={5}
           rows={10}
           maxLength={72}

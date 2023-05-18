@@ -1,16 +1,18 @@
+@use '../../../../styles/variables'
+
 .menu
   padding: 1rem
 
   display: flex
   align-items: center
   flex-direction: column
-  gap: 1.6rem
+  gap: 1rem
 
-  border-right: .1rem solid #eee
+  border-right: .1rem solid variables.$border
 
   a
     width: 100%
-    height: 6.2rem
+    height: 5rem
 
     padding: 1rem
 
@@ -18,4 +20,18 @@
     align-items: center
     justify-content: center
 
-    background-color: #eee
+    font-size: 1.6rem
+    font-weight: 600
+
+    transition: .3s all ease-out
+
+    background-color: variables.$link-background
+
+    &:hover
+      background-color: variables.$link-hover
+
+  .active
+    background-color: variables.$link-active
+
+    &:hover
+      background-color: variables.$link-active

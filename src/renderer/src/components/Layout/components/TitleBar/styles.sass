@@ -1,3 +1,5 @@
+@use '../../../../styles/variables'
+
 .titlebar
   -webkit-app-region: drag
 
@@ -8,7 +10,7 @@
   align-items: center
   justify-content: flex-end
 
-  border-bottom: .1rem solid #eee
+  border-bottom: .1rem solid variables.$border
 
   .close
 
@@ -23,7 +25,7 @@
 
     &:hover
       cursor: auto
-      background-color: #eee
+      background-color: variables.$border
 
     .icon
       color: #101010
