@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom'
 type OccurrenceProps = {
   id?: number
   date: string
-  responsibleOne: string
-  responsibleTwo: string
+  time: string
   incident: string
   address: string
-  receipt: string
   situation: string
-  observation: string
 }
 
 function Occurrences(): JSX.Element {
@@ -45,7 +42,7 @@ function Occurrences(): JSX.Element {
           <tbody>
             {occurrences.map((occurrence) => (
               <tr key={occurrence.id}>
-                <td>{occurrence.date}</td>
+                <td>{occurrence.date + ' ' + occurrence.time}</td>
                 <td>{occurrence.incident}</td>
                 <td>{occurrence.address}</td>
                 <td>{occurrence.situation}</td>

@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import './styles.sass'
 
-import { format } from 'date-fns'
-
 import db from '../../../../database'
 
 type FormProps = {
@@ -13,26 +11,14 @@ type FormProps = {
 function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element {
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
-  const [formattedDateTime, setFormattedDateTime] = useState('')
 
   function handleDateChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    setSelectedDate(event.target.value)
-    formatDateTime(event.target.value, selectedTime)
+    const data = event.target.value
+    setSelectedDate(data)
   }
 
   function handleTimeChange(event: React.ChangeEvent<HTMLInputElement>): void {
     setSelectedTime(event.target.value)
-    formatDateTime(selectedDate, event.target.value)
-  }
-
-  function formatDateTime(date: string, time: string): void {
-    if (date && time) {
-      const dateTime = new Date(`${date}T${time}`)
-      const formatted = format(dateTime, 'dd/MM/yyyy - HH:mm')
-      setFormattedDateTime(formatted)
-    } else {
-      setFormattedDateTime('')
-    }
   }
 
   const [selectedParticipantOne, setSelectedParticipantOne] = useState('')
@@ -90,7 +76,8 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
 
   function handleRegister(): void {
     if (
-      formattedDateTime !== '' &&
+      selectedDate !== '' &&
+      selectedTime !== '' &&
       selectedParticipantOne !== '' &&
       selectedParticipantTwo !== '' &&
       selectedIncident !== '' &&
@@ -99,7 +86,8 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       selectedSituation !== ''
     ) {
       db.occurrences.add({
-        date: formattedDateTime,
+        date: selectedDate,
+        time: selectedTime,
         participantOne: selectedParticipantOne.toLowerCase(),
         participantTwo: selectedParticipantTwo.toLowerCase(),
         incident: selectedIncident.toLowerCase(),
