@@ -21,6 +21,24 @@ body
   color: variables.$text
   background-color: variables.$background
 
+input,
+select,
+textarea
+  outline: none
+
+  height: 5rem
+  padding: 1rem
+
+  font-family: variables.$font-primary
+
+  border: .1rem solid variables.$input-border
+  background-color: variables.$input-background
+
+  color: variables.$input-placeholder
+
+  &::placeholder
+    color: variables.$input-placeholder
+
 a
   text-decoration: none
 

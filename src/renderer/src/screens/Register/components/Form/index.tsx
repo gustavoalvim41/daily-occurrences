@@ -116,6 +116,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <input
+          className="input"
           type="text"
           placeholder="Participante 1"
           value={selectedParticipantOne}
@@ -124,6 +125,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <input
+          className="input"
           type="text"
           placeholder="Participante 2"
           value={selectedParticipantTwo}
@@ -131,7 +133,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         />
       </div>
       <div className="row">
-        <select value={selectedIncident} onChange={handleSelectIncidentChange}>
+        <select className="input" value={selectedIncident} onChange={handleSelectIncidentChange}>
           <option>Incidente</option>
           <option value="corte de árvore">corte de árvore</option>
           <option value="fogo em residência">fogo em residência</option>
@@ -145,6 +147,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <input
+          className="input"
           type="text"
           placeholder="Endereço"
           value={selectedAddress}
@@ -152,14 +155,14 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         />
       </div>
       <div className="row">
-        <select value={selectedReceipt} onChange={handleSelectReceiptChange}>
+        <select className="input" value={selectedReceipt} onChange={handleSelectReceiptChange}>
           <option>Recebimento Via</option>
           <option value="Via Cobom">Via Cobom</option>
           <option value="Via Plantão">Via Plantão</option>
         </select>
       </div>
       <div className="row">
-        <select value={selectedSituation} onChange={handleSelectSituationChange}>
+        <select className="input" value={selectedSituation} onChange={handleSelectSituationChange}>
           <option>Situação</option>
           <option value="finalizado">finalizado</option>
           <option value="aguardando">aguardando</option>
@@ -169,10 +172,11 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
       </div>
       <div className="row">
         <textarea
+          className="textarea"
           placeholder="Observação"
           cols={5}
           rows={10}
-          maxLength={72}
+          maxLength={174}
           value={selectedObservation}
           onChange={handledObservationChange}
         ></textarea>
