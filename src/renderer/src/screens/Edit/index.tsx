@@ -30,7 +30,6 @@ function Edit(): JSX.Element {
         }
       }
     }
-
     fetchItem()
   }, [id])
 
