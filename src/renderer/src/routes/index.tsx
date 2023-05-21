@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import Home from '../screens/Home'
 import Occurrences from '../screens/Occurrences'
 import Register from '../screens/Register'
+import Edit from '../screens/Edit'
 
 function AppRouter(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function AppRouter(): JSX.Element {
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Occurrences />} path="/occurrences" />
+          <Route element={<Edit />} path="/occurrences/:id" />
           <Route element={<Register />} path="/register" />
         </Routes>
       </Layout>

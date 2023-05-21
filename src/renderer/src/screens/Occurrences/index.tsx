@@ -37,6 +37,7 @@ function Occurrences(): JSX.Element {
               <th>incidente</th>
               <th>endereço</th>
               <th>situação</th>
+              <th>mais</th>
             </tr>
           </thead>
           <tbody>
@@ -46,6 +47,9 @@ function Occurrences(): JSX.Element {
                 <td>{occurrence.incident}</td>
                 <td>{occurrence.address}</td>
                 <td>{occurrence.situation}</td>
+                <td>
+                  <Link to={`/occurrences/${occurrence.id}`}>mais</Link>
+                </td>
               </tr>
             ))}
           </tbody>
