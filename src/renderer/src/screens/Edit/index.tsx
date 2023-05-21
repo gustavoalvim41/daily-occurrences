@@ -23,15 +23,11 @@ function Edit(): JSX.Element {
 
   useEffect(() => {
     const fetchItem = async (): Promise<void> => {
-      try {
-        if (id) {
-          const foundItem = await db.occurrences.get(+id)
-          if (foundItem) {
-            setOccurrence([foundItem])
-          }
+      if (id) {
+        const foundItem = await db.occurrences.get(+id)
+        if (foundItem) {
+          setOccurrence([foundItem])
         }
-      } catch (error) {
-        console.log('Erro ao buscar o item:', error)
       }
     }
 
