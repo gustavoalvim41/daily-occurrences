@@ -37,18 +37,24 @@ function Occurrences(): JSX.Element {
               <th>incidente</th>
               <th>endereço</th>
               <th>situação</th>
-              <th>mais</th>
             </tr>
           </thead>
           <tbody>
             {occurrences.map((occurrence) => (
               <tr key={occurrence.id}>
-                <td>{occurrence.date + ' ' + occurrence.time}</td>
-                <td>{occurrence.incident}</td>
-                <td>{occurrence.address}</td>
-                <td>{occurrence.situation}</td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>mais</Link>
+                  <Link to={`/occurrences/${occurrence.id}`}>
+                    {occurrence.date + ' ' + occurrence.time}
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.incident}</Link>
+                </td>
+                <td>
+                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.address}</Link>
+                </td>
+                <td>
+                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.situation}</Link>
                 </td>
               </tr>
             ))}
