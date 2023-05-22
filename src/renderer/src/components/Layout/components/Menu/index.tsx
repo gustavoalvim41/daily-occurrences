@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from 'react'
+import { SetStateAction } from 'react'
 import './styles.sass'
 
 import { Link } from 'react-router-dom'
@@ -34,9 +34,12 @@ function NavList({ route, title, index, setIsActive, isActive }: NavListProps): 
   )
 }
 
-function Menu(): JSX.Element {
-  const [isActive, setIsActive] = useState(0)
+type MenuProps = {
+  isActive: number
+  setIsActive: React.Dispatch<SetStateAction<number>>
+}
 
+function Menu({ isActive, setIsActive }: MenuProps): JSX.Element {
   return (
     <div className="menu">
       {routes.map((item, index) => (

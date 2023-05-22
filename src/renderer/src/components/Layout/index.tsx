@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import './styles.sass'
 
 import TitleBar from './components/TitleBar'
@@ -9,12 +9,14 @@ type LayoutProps = {
 }
 
 function Layout({ children }: LayoutProps): JSX.Element {
+  const [isActive, setIsActive] = useState(0)
+
   return (
     <div className="layout">
       <TitleBar />
 
       <div className="structure">
-        <Menu />
+        <Menu isActive={isActive} setIsActive={setIsActive} />
 
         {children}
       </div>
