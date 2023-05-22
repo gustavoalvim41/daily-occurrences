@@ -49,18 +49,24 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
             {occurrences.map((occurrence) => (
               <tr key={occurrence.id}>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
                     {occurrence.date + ' ' + occurrence.time}
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.incident}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.incident}
+                  </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.address}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.address}
+                  </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.situation}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.situation}
+                  </Link>
                 </td>
               </tr>
             ))}
