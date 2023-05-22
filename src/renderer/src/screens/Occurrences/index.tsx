@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, SetStateAction } from 'react'
 import './styles.sass'
 import db from '../../database'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,11 @@ type OccurrenceProps = {
   situation: string
 }
 
-function Occurrences(): JSX.Element {
+type MenuProps = {
+  setIsActive: React.Dispatch<SetStateAction<number>>
+}
+
+function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   const [occurrences, setOccurrences] = useState<OccurrenceProps[]>([])
 
   useEffect(() => {
@@ -27,7 +31,9 @@ function Occurrences(): JSX.Element {
   return (
     <main className="occurrences">
       <div className="head">
-        <Link to="/register">nova ocorrência</Link>
+        <Link to="/register" onClick={(): void => setIsActive(9)}>
+          nova ocorrência
+        </Link>
       </div>
       <div className="content">
         <table>
