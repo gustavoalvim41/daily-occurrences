@@ -16,7 +16,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
       <div className="structure">
         <Menu />
 
-        <main>{children}</main>
+        {children}
       </div>
     </div>
   )

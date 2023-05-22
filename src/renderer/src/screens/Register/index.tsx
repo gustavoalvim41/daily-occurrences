@@ -9,7 +9,7 @@ function Register(): JSX.Element {
   const [showAlertError, setShowAlertError] = useState<boolean>(false)
 
   return (
-    <div className="register">
+    <main className="register">
       {showAlertSucess && (
         <Alert
           type="sucess"
@@ -25,7 +25,7 @@ function Register(): JSX.Element {
         />
       )}
       <Form setShowAlertSucess={setShowAlertSucess} setShowAlertError={setShowAlertError} />
-    </div>
+    </main>
   )
 }
 

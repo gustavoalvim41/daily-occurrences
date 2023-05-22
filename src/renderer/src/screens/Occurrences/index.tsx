@@ -25,7 +25,7 @@ function Occurrences(): JSX.Element {
   }, [occurrences])
 
   return (
-    <div className="occurrences">
+    <main className="occurrences">
       <div className="head">
         <Link to="/register">nova ocorrência</Link>
       </div>
@@ -61,7 +61,7 @@ function Occurrences(): JSX.Element {
           </tbody>
         </table>
       </div>
-    </div>
+    </main>
   )
 }
 
