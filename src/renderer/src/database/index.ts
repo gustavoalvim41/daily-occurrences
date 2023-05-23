@@ -1,9 +1,5 @@
 import Dexie from 'dexie'
 
-interface mydb extends Dexie {
-  occurrences: Dexie.Table<OccurrenceProps, number>
-}
-
 type OccurrenceProps = {
   id?: number
   date: string
@@ -17,10 +13,29 @@ type OccurrenceProps = {
   observation: string
 }
 
+type IncidentProps = {
+  id?: number
+  name: string
+}
+
+type ParticipantProps = {
+  id?: number
+  name: string
+  position: string
+}
+
+interface mydb extends Dexie {
+  occurrences: Dexie.Table<OccurrenceProps, number>
+  incidents: Dexie.Table<IncidentProps, number>
+  participants: Dexie.Table<ParticipantProps, number>
+}
+
 const db = new Dexie('occurrences') as mydb
 db.version(3).stores({
   occurrences:
-    '++id, date, time, participantOne, participantTwo, incident, address, receipt, situation, observation'
+    '++id, date, time, participantOne, participantTwo, incident, address, receipt, situation, observation',
+  incidents: '++id, incident',
+  participants: '++id, name, position'
 })
 
 export default db

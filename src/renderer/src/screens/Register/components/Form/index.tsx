@@ -182,7 +182,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         ></textarea>
       </div>
       <div className="row">
-        <button onClick={handleRegister}>register</button>
+        <button onClick={handleRegister}>cadastrar</button>
       </div>
     </div>
   )

@@ -19,6 +19,10 @@ const routes = [
   {
     route: '/occurrences',
     title: 'ocorrências'
+  },
+  {
+    route: '/settings',
+    title: 'configurações'
   }
 ]
 
