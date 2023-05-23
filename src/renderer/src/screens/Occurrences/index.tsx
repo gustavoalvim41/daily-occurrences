@@ -36,42 +36,46 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
         </Link>
       </div>
       <div className="content">
-        <table>
-          <thead>
-            <tr>
-              <th>data</th>
-              <th>incidente</th>
-              <th>endereço</th>
-              <th>situação</th>
-            </tr>
-          </thead>
-          <tbody>
-            {occurrences.map((occurrence) => (
-              <tr key={occurrence.id}>
-                <td>
-                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
-                    {occurrence.date + ' ' + occurrence.time}
-                  </Link>
-                </td>
-                <td>
-                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
-                    {occurrence.incident}
-                  </Link>
-                </td>
-                <td>
-                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
-                    {occurrence.address}
-                  </Link>
-                </td>
-                <td>
-                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
-                    {occurrence.situation}
-                  </Link>
-                </td>
+        {occurrences.length === 0 ? (
+          <p style={{ textAlign: 'center' }}>Não foram encontradas ocorrências.</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>data</th>
+                <th>incidente</th>
+                <th>endereço</th>
+                <th>situação</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {occurrences.map((occurrence) => (
+                <tr key={occurrence.id}>
+                  <td>
+                    <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                      {occurrence.date + ' ' + occurrence.time}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                      {occurrence.incident}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                      {occurrence.address}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                      {occurrence.situation}
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </main>
   )
