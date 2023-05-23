@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, SetStateAction } from 'react'
 import './styles.sass'
 
 import TitleBar from './components/TitleBar'
@@ -6,17 +6,19 @@ import Menu from './components/Menu'
 
 type LayoutProps = {
   children: ReactNode
+  isActive: number
+  setIsActive: React.Dispatch<SetStateAction<number>>
 }
 
-function Layout({ children }: LayoutProps): JSX.Element {
+function Layout({ children, isActive, setIsActive }: LayoutProps): JSX.Element {
   return (
     <div className="layout">
       <TitleBar />
 
       <div className="structure">
-        <Menu />
+        <Menu isActive={isActive} setIsActive={setIsActive} />
 
-        <main>{children}</main>
+        {children}
       </div>
     </div>
   )

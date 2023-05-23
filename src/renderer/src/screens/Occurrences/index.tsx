@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, SetStateAction } from 'react'
 import './styles.sass'
 import db from '../../database'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,11 @@ type OccurrenceProps = {
   situation: string
 }
 
-function Occurrences(): JSX.Element {
+type MenuProps = {
+  setIsActive: React.Dispatch<SetStateAction<number>>
+}
+
+function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   const [occurrences, setOccurrences] = useState<OccurrenceProps[]>([])
 
   useEffect(() => {
@@ -25,9 +29,11 @@ function Occurrences(): JSX.Element {
   }, [occurrences])
 
   return (
-    <div className="occurrences">
+    <main className="occurrences">
       <div className="head">
-        <Link to="/register">nova ocorrência</Link>
+        <Link to="/register" onClick={(): void => setIsActive(9)}>
+          nova ocorrência
+        </Link>
       </div>
       <div className="content">
         <table>
@@ -43,25 +49,31 @@ function Occurrences(): JSX.Element {
             {occurrences.map((occurrence) => (
               <tr key={occurrence.id}>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
                     {occurrence.date + ' ' + occurrence.time}
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.incident}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.incident}
+                  </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.address}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.address}
+                  </Link>
                 </td>
                 <td>
-                  <Link to={`/occurrences/${occurrence.id}`}>{occurrence.situation}</Link>
+                  <Link to={`/occurrences/${occurrence.id}`} onClick={(): void => setIsActive(9)}>
+                    {occurrence.situation}
+                  </Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </div>
+    </main>
   )
 }
 

@@ -34,7 +34,7 @@ function Edit(): JSX.Element {
   }, [id])
 
   return (
-    <div className="edit">
+    <main className="edit">
       {occurrence?.map((occurrence) => (
         <div key={occurrence.id}>
           <p>{occurrence.date + ' ' + occurrence.time}</p>
@@ -43,7 +43,7 @@ function Edit(): JSX.Element {
           <p>{occurrence.situation}</p>
         </div>
       ))}
-    </div>
+    </main>
   )
 }
 
