@@ -22,7 +22,7 @@ const routes = [
   },
   {
     route: '/settings',
-    title: 'configurações'
+    title: 'cadastros'
   }
 ]
 
