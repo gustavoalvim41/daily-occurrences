@@ -31,12 +31,18 @@ function Participants(): JSX.Element {
     setSelectedName('')
     setSelectedPosition('')
   }
+
   return (
     <main className="participants">
       <div className="row">
         <div>
-          <input type="text" placeholder="Nome" onChange={handleNameChange} />
-          <input type="text" placeholder="Cargo" onChange={handlePositionChange} />
+          <input type="text" placeholder="Nome" value={selectedName} onChange={handleNameChange} />
+          <input
+            type="text"
+            placeholder="Cargo"
+            value={selectedPosition}
+            onChange={handlePositionChange}
+          />
           <button onClick={handleParticipantRegister}>cadastrar</button>
         </div>
       </div>

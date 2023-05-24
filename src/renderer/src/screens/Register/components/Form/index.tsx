@@ -75,6 +75,10 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
   }
 
   function handleRegister(): void {
+    if (selectedParticipantOne === selectedParticipantTwo) {
+      return
+    }
+
     if (
       selectedDate !== '' &&
       selectedTime !== '' &&
@@ -125,6 +129,23 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
     fetchOccurrences()
   }, [incidents])
 
+  type ParticipantsProps = {
+    id?: number
+    name: string
+    position: string
+  }
+
+  const [participants, setParticipants] = useState<ParticipantsProps[]>([])
+
+  useEffect(() => {
+    const fetchOccurrences = async (): Promise<void> => {
+      const participants = await db.participants.toArray()
+      setParticipants(participants as ParticipantsProps[])
+    }
+
+    fetchOccurrences()
+  }, [incidents])
+
   return (
     <div className="form">
       <div className="row">
@@ -138,6 +159,11 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
           onChange={handleParticipantOneChange}
         >
           <option>Participante 1</option>
+          {participants.map((participant) => (
+            <option key={participant.id} value={participant.name}>
+              {participant.name + ` (${participant.position})`}
+            </option>
+          ))}
         </select>
       </div>
       <div className="row">
@@ -147,6 +173,11 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
           onChange={handleParticipantTwoChange}
         >
           <option>Participante 2</option>
+          {participants.map((participant) => (
+            <option key={participant.id} value={participant.name}>
+              {participant.name + ` (${participant.position})`}
+            </option>
+          ))}
         </select>
       </div>
       <div className="row">
@@ -173,6 +204,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
           <option>Recebimento Via</option>
           <option value="Via Cobom">Via Cobom</option>
           <option value="Via Plantão">Via Plantão</option>
+          <option value="Via Ouvidoria">Via Ouvidoria</option>
         </select>
       </div>
       <div className="row">
