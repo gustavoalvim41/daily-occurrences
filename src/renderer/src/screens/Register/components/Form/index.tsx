@@ -3,12 +3,7 @@ import './styles.sass'
 
 import db from '../../../../database'
 
-type FormProps = {
-  setShowAlertSucess: React.Dispatch<React.SetStateAction<boolean>>
-  setShowAlertError: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element {
+function Form(): JSX.Element {
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
 
@@ -100,15 +95,6 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         situation: selectedSituation.toLowerCase(),
         observation: selectedObservation.toLowerCase()
       })
-      setShowAlertSucess(true)
-      setInterval(() => {
-        setShowAlertSucess(false)
-      }, 3000)
-    } else {
-      setShowAlertError(true)
-      setInterval(() => {
-        setShowAlertError(false)
-      }, 3000)
     }
     clearInputs()
   }
