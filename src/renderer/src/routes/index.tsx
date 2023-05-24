@@ -5,7 +5,8 @@ import Layout from '../components/Layout'
 
 import Home from '../screens/Home'
 import Occurrences from '../screens/Occurrences'
-import Settings from '../screens/Settings'
+import Incidents from '../screens/Incidents'
+import Participants from '../screens/Participants'
 import Register from '../screens/Register'
 import Edit from '../screens/Edit'
 
@@ -18,7 +19,8 @@ function AppRouter(): JSX.Element {
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<Occurrences setIsActive={setIsActive} />} path="/occurrences" />
-          <Route element={<Settings />} path="/settings" />
+          <Route element={<Incidents />} path="/incidents" />
+          <Route element={<Participants />} path="/participants" />
           <Route element={<Edit />} path="/occurrences/:id" />
           <Route element={<Register />} path="/register" />
         </Routes>
