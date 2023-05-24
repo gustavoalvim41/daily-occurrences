@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './styles.sass'
 
 import db from '../../../../database'
@@ -108,6 +108,23 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
     }
     clearInputs()
   }
+
+  type IncidentProps = {
+    id?: number
+    name: string
+  }
+
+  const [incidents, setIncidents] = useState<IncidentProps[]>([])
+
+  useEffect(() => {
+    const fetchOccurrences = async (): Promise<void> => {
+      const incidents = await db.incidents.toArray()
+      setIncidents(incidents as IncidentProps[])
+    }
+
+    fetchOccurrences()
+  }, [incidents])
+
   return (
     <div className="form">
       <div className="row">
@@ -133,16 +150,14 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         />
       </div>
       <div className="row">
+        {}
         <select className="input" value={selectedIncident} onChange={handleSelectIncidentChange}>
           <option>Incidente</option>
-          <option value="corte de árvore">corte de árvore</option>
-          <option value="fogo em residência">fogo em residência</option>
-          <option value="fogo em estabelecimento">fogo em estabelecimento</option>
-          <option value="fogo em vegetação">fogo em vegetação</option>
-          <option value="óleo em via">óleo em via</option>
-          <option value="inseto agressivo">inseto agressivo</option>
-          <option value="animal em risco">animal em risco</option>
-          <option value="isolamento de área">isolamento de área</option>
+          {incidents.map((incident) => (
+            <option key={incident.id} value={incident.name}>
+              {incident.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className="row">

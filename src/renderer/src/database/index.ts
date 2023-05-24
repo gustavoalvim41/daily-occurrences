@@ -34,7 +34,7 @@ const db = new Dexie('occurrences') as mydb
 db.version(3).stores({
   occurrences:
     '++id, date, time, participantOne, participantTwo, incident, address, receipt, situation, observation',
-  incidents: '++id, incident',
+  incidents: '++id, name',
   participants: '++id, name, position'
 })
 
