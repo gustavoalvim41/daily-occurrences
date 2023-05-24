@@ -160,9 +160,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         >
           <option>Participante 1</option>
           {participants.map((participant) => (
-            <option key={participant.id} value={participant.name}>
-              {participant.name + ` (${participant.position})`}
-            </option>
+            <option key={participant.id}>{participant.name + ` (${participant.position})`}</option>
           ))}
         </select>
       </div>
@@ -174,9 +172,7 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         >
           <option>Participante 2</option>
           {participants.map((participant) => (
-            <option key={participant.id} value={participant.name}>
-              {participant.name + ` (${participant.position})`}
-            </option>
+            <option key={participant.id}>{participant.name + ` (${participant.position})`}</option>
           ))}
         </select>
       </div>
