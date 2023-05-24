@@ -38,9 +38,12 @@ function Edit(): JSX.Element {
       {occurrence?.map((occurrence) => (
         <div key={occurrence.id}>
           <p>{occurrence.date + ' ' + occurrence.time}</p>
+          <p>{occurrence.participantOne + ', ' + occurrence.participantTwo}</p>
           <p>{occurrence.incident}</p>
           <p>{occurrence.address}</p>
+          <p>{occurrence.receipt}</p>
           <p>{occurrence.situation}</p>
+          <p>{occurrence.observation}</p>
         </div>
       ))}
     </main>
