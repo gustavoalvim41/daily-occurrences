@@ -24,11 +24,11 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
   const [selectedParticipantOne, setSelectedParticipantOne] = useState('')
   const [selectedParticipantTwo, setSelectedParticipantTwo] = useState('')
 
-  function handleParticipantOneChange(event: React.ChangeEvent<HTMLInputElement>): void {
+  function handleParticipantOneChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     setSelectedParticipantOne(event.target.value)
   }
 
-  function handleParticipantTwoChange(event: React.ChangeEvent<HTMLInputElement>): void {
+  function handleParticipantTwoChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     setSelectedParticipantTwo(event.target.value)
   }
 
@@ -132,25 +132,24 @@ function Form({ setShowAlertSucess, setShowAlertError }: FormProps): JSX.Element
         <input type="time" value={selectedTime} onChange={handleTimeChange} />
       </div>
       <div className="row">
-        <input
+        <select
           className="input"
-          type="text"
-          placeholder="Participante 1"
           value={selectedParticipantOne}
           onChange={handleParticipantOneChange}
-        />
+        >
+          <option>Participante 1</option>
+        </select>
       </div>
       <div className="row">
-        <input
+        <select
           className="input"
-          type="text"
-          placeholder="Participante 2"
           value={selectedParticipantTwo}
           onChange={handleParticipantTwoChange}
-        />
+        >
+          <option>Participante 2</option>
+        </select>
       </div>
       <div className="row">
-        {}
         <select className="input" value={selectedIncident} onChange={handleSelectIncidentChange}>
           <option>Incidente</option>
           {incidents.map((incident) => (
