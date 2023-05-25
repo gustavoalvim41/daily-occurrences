@@ -28,7 +28,7 @@ function Incidents(): JSX.Element {
       </div>
       <div className="content">
         {incidents.length === 0 ? (
-          <p style={{ textAlign: 'center' }}>Não foram encontrados incidentes.</p>
+          <p style={{ textAlign: 'center' }}>Não foi encontrado nenhum incidente.</p>
         ) : (
           <table>
             <thead>

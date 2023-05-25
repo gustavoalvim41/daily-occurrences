@@ -29,7 +29,7 @@ function Participants(): JSX.Element {
       </div>
       <div className="content">
         {participants.length === 0 ? (
-          <p style={{ textAlign: 'center' }}>Não foram encontrados participantes.</p>
+          <p style={{ textAlign: 'center' }}>Não foi encontrado nenhum participante.</p>
         ) : (
           <table>
             <thead>
