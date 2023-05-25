@@ -4,11 +4,16 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from '../components/Layout'
 
 import Home from '../screens/Home'
+
 import Occurrences from '../screens/Occurrences'
+import RegisterOccurrences from '../screens/Occurrences/RegisterOccurrences'
+import EditOccurrences from '../screens/Occurrences/EditOccurrences'
+
 import Incidents from '../screens/Incidents'
+import RegisterIncident from '../screens/Incidents/RegisterIncident'
+
 import Participants from '../screens/Participants'
-import Register from '../screens/Register'
-import Edit from '../screens/Edit'
+import RegiterParticipant from '../screens/Participants/RegiterParticipant'
 
 function AppRouter(): JSX.Element {
   const [isActive, setIsActive] = useState(0)
@@ -18,11 +23,16 @@ function AppRouter(): JSX.Element {
       <Layout isActive={isActive} setIsActive={setIsActive}>
         <Routes>
           <Route element={<Home />} path="/" />
+
           <Route element={<Occurrences setIsActive={setIsActive} />} path="/occurrences" />
+          <Route element={<EditOccurrences />} path="/editOccurrences/:id" />
+          <Route element={<RegisterOccurrences />} path="/registerOccurrences" />
+
           <Route element={<Incidents />} path="/incidents" />
+          <Route element={<RegisterIncident />} path="/registerIncident" />
+
           <Route element={<Participants />} path="/participants" />
-          <Route element={<Edit />} path="/occurrences/:id" />
-          <Route element={<Register />} path="/register" />
+          <Route element={<RegiterParticipant />} path="/regiterParticipant" />
         </Routes>
       </Layout>
     </Router>

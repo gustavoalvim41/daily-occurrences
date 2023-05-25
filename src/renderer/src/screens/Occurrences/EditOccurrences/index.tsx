@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './styles.sass'
 import { useParams } from 'react-router-dom'
-import db from '../../database'
+import db from '../../../database'
 
 type OccurrenceProps = {
   id?: number
@@ -16,7 +16,7 @@ type OccurrenceProps = {
   observation: string
 }
 
-function Edit(): JSX.Element {
+function EditOccurrences(): JSX.Element {
   const { id } = useParams<{ id: string }>()
 
   const [occurrence, setOccurrence] = useState<OccurrenceProps[]>([])
@@ -34,7 +34,7 @@ function Edit(): JSX.Element {
   }, [id])
 
   return (
-    <main className="edit">
+    <main className="editOccurrences">
       {occurrence?.map((occurrence) => (
         <div key={occurrence.id}>
           <p>{occurrence.date + ' ' + occurrence.time}</p>
@@ -50,4 +50,4 @@ function Edit(): JSX.Element {
   )
 }
 
-export default Edit
+export default EditOccurrences

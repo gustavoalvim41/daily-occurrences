@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './styles.sass'
 
-import db from '../../../../database'
+import db from '../../../../../database'
 
 function Form(): JSX.Element {
   const [selectedDate, setSelectedDate] = useState('')
@@ -130,7 +130,7 @@ function Form(): JSX.Element {
     }
 
     fetchOccurrences()
-  }, [incidents])
+  }, [participants])
 
   return (
     <div className="form">

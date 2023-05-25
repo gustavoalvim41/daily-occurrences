@@ -2,7 +2,7 @@ import './styles.sass'
 
 import Form from './components/Form'
 
-function Register(): JSX.Element {
+function RegisterOccurrences(): JSX.Element {
   return (
     <main className="register">
       <Form />
@@ -10,4 +10,4 @@ function Register(): JSX.Element {
   )
 }
 
-export default Register
+export default RegisterOccurrences
