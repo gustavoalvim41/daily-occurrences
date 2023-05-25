@@ -27,13 +27,13 @@ function Incidents(): JSX.Element {
   return (
     <main className="incidents">
       <div className="row">
+        <input
+          type="text"
+          placeholder="Novo Incidente"
+          value={selectedIncident}
+          onChange={handleIncidentChange}
+        />
         <div>
-          <input
-            type="text"
-            placeholder="Novo Incidente"
-            value={selectedIncident}
-            onChange={handleIncidentChange}
-          />
           <button onClick={handleIncidentRegister}>cadastrar</button>
         </div>
       </div>

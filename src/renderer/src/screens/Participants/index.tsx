@@ -35,14 +35,14 @@ function Participants(): JSX.Element {
   return (
     <main className="participants">
       <div className="row">
+        <input type="text" placeholder="Nome" value={selectedName} onChange={handleNameChange} />
+        <input
+          type="text"
+          placeholder="Cargo"
+          value={selectedPosition}
+          onChange={handlePositionChange}
+        />
         <div>
-          <input type="text" placeholder="Nome" value={selectedName} onChange={handleNameChange} />
-          <input
-            type="text"
-            placeholder="Cargo"
-            value={selectedPosition}
-            onChange={handlePositionChange}
-          />
           <button onClick={handleParticipantRegister}>cadastrar</button>
         </div>
       </div>
