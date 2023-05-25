@@ -4,7 +4,7 @@ import Form from './components/Form'
 
 function RegisterOccurrences(): JSX.Element {
   return (
-    <main className="register">
+    <main className="registerOccurrences">
       <Form />
     </main>
   )

@@ -31,7 +31,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   return (
     <main className="occurrences">
       <div className="head">
-        <Link to="/register" onClick={(): void => setIsActive(9)}>
+        <Link to="/registerOccurrences" onClick={(): void => setIsActive(9)}>
           nova ocorrência
         </Link>
       </div>
