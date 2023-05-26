@@ -1,7 +1,9 @@
 import { useState, useEffect, SetStateAction } from 'react'
 import './styles.sass'
+
 import db from '../../database'
 import { Link } from 'react-router-dom'
+import { format } from 'date-fns'
 
 type OccurrenceProps = {
   id?: number
@@ -56,7 +58,10 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
                       to={`/editOccurrences/${occurrence.id}`}
                       onClick={(): void => setIsActive(9)}
                     >
-                      {occurrence.date + ' ' + occurrence.time}
+                      {format(
+                        new Date(`${occurrence.date}T${occurrence.time}`),
+                        'dd/MM/yyyy - HH:mm'
+                      )}
                     </Link>
                   </td>
                   <td>
