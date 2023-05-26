@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import './styles.sass'
 
 import db from '../../database'
@@ -10,7 +10,11 @@ type ParticipantsProps = {
   position: string
 }
 
-function Participants(): JSX.Element {
+type MenuProps = {
+  setIsActive: React.Dispatch<SetStateAction<number>>
+}
+
+function Participants({ setIsActive }: MenuProps): JSX.Element {
   const [participants, setParticipants] = useState<ParticipantsProps[]>([])
 
   useEffect(() => {
@@ -25,7 +29,9 @@ function Participants(): JSX.Element {
   return (
     <main className="participants">
       <div className="head">
-        <Link to="/regiterParticipant">novo participante</Link>
+        <Link to="/regiterParticipant" onClick={(): void => setIsActive(9)}>
+          novo participante
+        </Link>
       </div>
       <div className="content">
         {participants.length === 0 ? (

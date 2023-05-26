@@ -28,10 +28,10 @@ function AppRouter(): JSX.Element {
           <Route element={<EditOccurrences />} path="/editOccurrences/:id" />
           <Route element={<RegisterOccurrences />} path="/registerOccurrences" />
 
-          <Route element={<Incidents />} path="/incidents" />
+          <Route element={<Incidents setIsActive={setIsActive} />} path="/incidents" />
           <Route element={<RegisterIncident />} path="/registerIncident" />
 
-          <Route element={<Participants />} path="/participants" />
+          <Route element={<Participants setIsActive={setIsActive} />} path="/participants" />
           <Route element={<RegiterParticipant />} path="/regiterParticipant" />
         </Routes>
       </Layout>

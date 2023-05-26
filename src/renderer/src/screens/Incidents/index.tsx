@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import './styles.sass'
 
 import db from '../../database'
 import { Link } from 'react-router-dom'
 
-function Incidents(): JSX.Element {
+type MenuProps = {
+  setIsActive: React.Dispatch<SetStateAction<number>>
+}
+
+function Incidents({ setIsActive }: MenuProps): JSX.Element {
   type IncidentProps = {
     id?: number
     name: string
@@ -24,7 +28,9 @@ function Incidents(): JSX.Element {
   return (
     <main className="incidents">
       <div className="head">
-        <Link to="/registerIncident">novo incidente</Link>
+        <Link to="/registerIncident" onClick={(): void => setIsActive(9)}>
+          novo incidente
+        </Link>
       </div>
       <div className="content">
         {incidents.length === 0 ? (
