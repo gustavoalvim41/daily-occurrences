@@ -37,7 +37,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
       </div>
       <div className="content">
         {occurrences.length === 0 ? (
-          <p style={{ textAlign: 'center' }}>Não foi encontrado nenhuma ocorrência.</p>
+          <p style={{ textAlign: 'center' }}>Nenhuma ocorrência foi encontrada.</p>
         ) : (
           <table>
             <thead>
