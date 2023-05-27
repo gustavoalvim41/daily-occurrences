@@ -51,10 +51,10 @@ function Form(): JSX.Element {
     setSelectedSituation(event.target.value)
   }
 
-  const [selectedObservation, setSelecteddObservation] = useState('')
+  const [selectedObservation, setSelectedObservation] = useState('')
 
   const handledObservationChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    setSelecteddObservation(event.target.value)
+    setSelectedObservation(event.target.value)
   }
 
   function clearInputs(): void {
@@ -66,7 +66,7 @@ function Form(): JSX.Element {
     setSelectedAddress('')
     setSelectedReceipt('')
     setSelectedSituation('')
-    setSelecteddObservation('')
+    setSelectedObservation('')
   }
 
   function handleRegister(): void {
@@ -82,7 +82,8 @@ function Form(): JSX.Element {
       selectedIncident !== '' &&
       selectedAddress !== '' &&
       selectedReceipt !== '' &&
-      selectedSituation !== ''
+      selectedSituation !== '' &&
+      selectedObservation !== ''
     ) {
       db.occurrences.add({
         date: selectedDate,
