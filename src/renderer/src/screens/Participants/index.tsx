@@ -40,7 +40,6 @@ function Participants({ setIsActive }: MenuProps): JSX.Element {
           <table>
             <thead>
               <tr>
-                <th>código</th>
                 <th>nome</th>
                 <th>cargo</th>
               </tr>
@@ -48,9 +47,12 @@ function Participants({ setIsActive }: MenuProps): JSX.Element {
             <tbody>
               {participants.map((participant) => (
                 <tr key={participant.id}>
-                  <td>{participant.id}</td>
-                  <td>{participant.name}</td>
-                  <td>{participant.position}</td>
+                  <td>
+                    <Link to={`/editParticipant/${participant.id}`}>{participant.name}</Link>
+                  </td>
+                  <td>
+                    <Link to={`/editParticipant/${participant.id}`}>{participant.position}</Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

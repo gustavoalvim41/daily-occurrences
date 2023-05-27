@@ -15,6 +15,7 @@ import EditIncident from '../screens/Incidents/EditIncident'
 
 import Participants from '../screens/Participants'
 import RegiterParticipant from '../screens/Participants/RegiterParticipant'
+import EditParticipant from '../screens/Participants/EditParticipant'
 
 function AppRouter(): JSX.Element {
   const [isActive, setIsActive] = useState(0)
@@ -35,6 +36,7 @@ function AppRouter(): JSX.Element {
 
           <Route element={<Participants setIsActive={setIsActive} />} path="/participants" />
           <Route element={<RegiterParticipant />} path="/regiterParticipant" />
+          <Route element={<EditParticipant />} path="/editParticipant/:id" />
         </Routes>
       </Layout>
     </Router>

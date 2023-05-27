@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react'
 import './styles.sass'
 
 import db from '../../../../../database'
+import { useNavigate } from 'react-router-dom'
 
 function Form(): JSX.Element {
+  const navigate = useNavigate()
+
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedTime, setSelectedTime] = useState('')
 
@@ -98,6 +101,7 @@ function Form(): JSX.Element {
       })
     }
     clearInputs()
+    navigate('/occurrences')
   }
 
   type IncidentProps = {
