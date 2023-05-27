@@ -46,8 +46,12 @@ function Incidents({ setIsActive }: MenuProps): JSX.Element {
             <tbody>
               {incidents.map((incident) => (
                 <tr key={incident.id}>
-                  <td>{incident.id}</td>
-                  <td>{incident.name}</td>
+                  <td>
+                    <Link to={`/editIncident/${incident.id}`}>{incident.id}</Link>
+                  </td>
+                  <td>
+                    <Link to={`/editIncident/${incident.id}`}>{incident.name}</Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

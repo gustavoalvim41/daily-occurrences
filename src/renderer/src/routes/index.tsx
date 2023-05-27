@@ -11,6 +11,7 @@ import EditOccurrences from '../screens/Occurrences/EditOccurrences'
 
 import Incidents from '../screens/Incidents'
 import RegisterIncident from '../screens/Incidents/RegisterIncident'
+import EditIncident from '../screens/Incidents/EditIncident'
 
 import Participants from '../screens/Participants'
 import RegiterParticipant from '../screens/Participants/RegiterParticipant'
@@ -30,6 +31,7 @@ function AppRouter(): JSX.Element {
 
           <Route element={<Incidents setIsActive={setIsActive} />} path="/incidents" />
           <Route element={<RegisterIncident />} path="/registerIncident" />
+          <Route element={<EditIncident />} path="/editIncident/:id" />
 
           <Route element={<Participants setIsActive={setIsActive} />} path="/participants" />
           <Route element={<RegiterParticipant />} path="/regiterParticipant" />
