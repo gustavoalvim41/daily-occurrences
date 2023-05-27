@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: daily-occurrences
+productName: Ocorrências Diárias
 directories:
   buildResources: build
 files:
