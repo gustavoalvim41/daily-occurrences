@@ -35,17 +35,59 @@ function EditOccurrences(): JSX.Element {
 
   return (
     <main className="editOccurrences">
-      {occurrence?.map((occurrence) => (
-        <div key={occurrence.id}>
-          <p>{occurrence.date + ' ' + occurrence.time}</p>
-          <p>{occurrence.participantOne + ', ' + occurrence.participantTwo}</p>
-          <p>{occurrence.incident}</p>
-          <p>{occurrence.address}</p>
-          <p>{occurrence.receipt}</p>
-          <p>{occurrence.situation}</p>
-          <p>{occurrence.observation}</p>
+      <div className="form">
+        <div className="row">
+          <input type="date" />
+          <input type="time" />
         </div>
-      ))}
+        <div className="row">
+          <select className="input">
+            <option>Participante 1</option>
+          </select>
+        </div>
+        <div className="row">
+          <select className="input">
+            <option>Participante 2</option>
+          </select>
+        </div>
+        <div className="row">
+          <select className="input">
+            <option>Incidente</option>
+          </select>
+        </div>
+        <div className="row">
+          <input className="input" type="text" placeholder="Endereço" />
+        </div>
+        <div className="row">
+          <select className="input">
+            <option>Recebimento Via</option>
+            <option value="Via Cobom">Via Cobom</option>
+            <option value="Via Plantão">Via Plantão</option>
+            <option value="Via Ouvidoria">Via Ouvidoria</option>
+          </select>
+        </div>
+        <div className="row">
+          <select className="input">
+            <option>Situação</option>
+            <option value="finalizado">finalizado</option>
+            <option value="aguardando">aguardando</option>
+            <option value="reagendado">reagendado</option>
+            <option value="sem contato">sem contato</option>
+          </select>
+        </div>
+        <div className="row">
+          <textarea
+            className="textarea"
+            placeholder="Observação"
+            cols={5}
+            rows={10}
+            maxLength={174}
+          ></textarea>
+        </div>
+        <div className="row">
+          <button>editar</button>
+        </div>
+      </div>
     </main>
   )
 }
