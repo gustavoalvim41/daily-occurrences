@@ -22,7 +22,7 @@ function EditOccurrences(): JSX.Element {
   const [occurrence, setOccurrence] = useState<OccurrenceProps[]>([])
 
   useEffect(() => {
-    const fetchItem = async (): Promise<void> => {
+    async function fetchItem(): Promise<void> {
       if (id) {
         const foundItem = await db.occurrences.get(+id)
         if (foundItem) {

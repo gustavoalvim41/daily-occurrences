@@ -1,4 +1,45 @@
+@use '../../../styles/variables'
+
 .registerOccurrences
   height: 100%
 
   padding: 1rem
+
+  .form
+    display: flex
+    flex-direction: column
+    gap: 1rem
+
+    .row
+      display: flex
+      align-items: center
+      gap: 1rem
+
+      .input
+        width: 50rem
+
+        text-transform: capitalize
+
+      .textarea
+        width: 50rem
+        height: 10rem
+
+        resize: none
+
+      button
+        height: 4.5rem
+
+        padding: 0 1.6rem
+
+        font-family: variables.$font-primary
+        font-size: 1.5rem
+        font-weight: 600
+
+        text-transform: capitalize
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        color: variables.$button-color
+        background-color: variables.$button-background
