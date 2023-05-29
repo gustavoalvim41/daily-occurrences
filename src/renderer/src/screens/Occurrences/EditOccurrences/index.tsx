@@ -1,37 +1,37 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import './styles.sass'
-import { useParams } from 'react-router-dom'
-import db from '../../../database'
+// import { useParams } from 'react-router-dom'
+// import db from '../../../database'
 
-type OccurrenceProps = {
-  id?: number
-  date: string
-  time: string
-  participantOne: string
-  participantTwo: string
-  incident: string
-  address: string
-  receipt: string
-  situation: string
-  observation: string
-}
+// type OccurrenceProps = {
+//   id?: number
+//   date: string
+//   time: string
+//   participantOne: string
+//   participantTwo: string
+//   incident: string
+//   address: string
+//   receipt: string
+//   situation: string
+//   observation: string
+// }
 
 function EditOccurrences(): JSX.Element {
-  const { id } = useParams<{ id: string }>()
+  // const { id } = useParams<{ id: string }>()
 
-  const [occurrence, setOccurrence] = useState<OccurrenceProps[]>([])
+  // // const [occurrence, setOccurrence] = useState<OccurrenceProps[]>([])
 
-  useEffect(() => {
-    async function fetchItem(): Promise<void> {
-      if (id) {
-        const foundItem = await db.occurrences.get(+id)
-        if (foundItem) {
-          setOccurrence([foundItem])
-        }
-      }
-    }
-    fetchItem()
-  }, [id])
+  // // useEffect(() => {
+  // //   async function fetchItem(): Promise<void> {
+  // //     if (id) {
+  // //       const foundItem = await db.occurrences.get(+id)
+  // //       if (foundItem) {
+  // //         setOccurrence([foundItem])
+  // //       }
+  // //     }
+  // //   }
+  // //   fetchItem()
+  // // }, [id])
 
   return (
     <main className="editOccurrences">
