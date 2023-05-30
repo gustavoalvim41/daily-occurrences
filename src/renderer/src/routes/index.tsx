@@ -7,7 +7,7 @@ import Home from '../screens/Home'
 
 import Occurrences from '../screens/Occurrences'
 import RegisterOccurrences from '../screens/Occurrences/RegisterOccurrences'
-import EditOccurrences from '../screens/Occurrences/EditOccurrences'
+import EditOccurrence from '../screens/Occurrences/EditOccurrence'
 
 import Incidents from '../screens/Incidents'
 import RegisterIncident from '../screens/Incidents/RegisterIncident'
@@ -27,7 +27,7 @@ function AppRouter(): JSX.Element {
           <Route element={<Home />} path="/" />
 
           <Route element={<Occurrences setIsActive={setIsActive} />} path="/occurrences" />
-          <Route element={<EditOccurrences />} path="/editOccurrences/:id" />
+          <Route element={<EditOccurrence />} path="/editOccurrence/:id" />
           <Route element={<RegisterOccurrences />} path="/registerOccurrences" />
 
           <Route element={<Incidents setIsActive={setIsActive} />} path="/incidents" />

@@ -55,7 +55,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
                 <tr key={occurrence.id}>
                   <td>
                     <Link
-                      to={`/editOccurrences/${occurrence.id}`}
+                      to={`/editOccurrence/${occurrence.id}`}
                       onClick={(): void => setIsActive(9)}
                     >
                       {format(
@@ -66,7 +66,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
                   </td>
                   <td>
                     <Link
-                      to={`/editOccurrences/${occurrence.id}`}
+                      to={`/editOccurrence/${occurrence.id}`}
                       onClick={(): void => setIsActive(9)}
                     >
                       {occurrence.incident}
@@ -74,7 +74,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
                   </td>
                   <td>
                     <Link
-                      to={`/editOccurrences/${occurrence.id}`}
+                      to={`/editOccurrence/${occurrence.id}`}
                       onClick={(): void => setIsActive(9)}
                     >
                       {occurrence.address}
@@ -82,7 +82,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
                   </td>
                   <td>
                     <Link
-                      to={`/editOccurrences/${occurrence.id}`}
+                      to={`/editOccurrence/${occurrence.id}`}
                       onClick={(): void => setIsActive(9)}
                     >
                       {occurrence.situation}

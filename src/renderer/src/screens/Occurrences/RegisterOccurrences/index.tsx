@@ -10,8 +10,7 @@ function RegisterOccurrences(): JSX.Element {
   const [selectedTime, setSelectedTime] = useState('')
 
   function handleDateChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    const data = event.target.value
-    setSelectedDate(data)
+    setSelectedDate(event.target.value)
   }
 
   function handleTimeChange(event: React.ChangeEvent<HTMLInputElement>): void {
