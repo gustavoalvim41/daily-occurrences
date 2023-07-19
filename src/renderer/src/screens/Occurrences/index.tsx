@@ -20,7 +20,6 @@ type MenuProps = {
 
 function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   const ITEMS_PER_PAGE = 10
-  const MAX_PAGES = 6
 
   const [occurrences, setOccurrences] = useState<OccurrenceProps[]>([])
   const [currentPage, setCurrentPage] = useState(1)
@@ -45,10 +44,11 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   }
 
   function goToNextPage(): void {
-    if (currentPage < MAX_PAGES) {
+    const totalPages = Math.ceil(occurrences.length / ITEMS_PER_PAGE)
+    if (currentPage < totalPages) {
       setCurrentPage((prevPage) => prevPage + 1)
     } else {
-      setCurrentPage(Math.ceil(occurrences.length / ITEMS_PER_PAGE))
+      setCurrentPage(totalPages)
     }
   }
 
