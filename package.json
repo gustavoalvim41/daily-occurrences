@@ -29,7 +29,8 @@
     "dexie": "^3.2.3",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "semver": "^7.5.2"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^1.0.1",
