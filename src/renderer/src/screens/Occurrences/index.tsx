@@ -19,7 +19,11 @@ type MenuProps = {
 }
 
 function Occurrences({ setIsActive }: MenuProps): JSX.Element {
+  const ITEMS_PER_PAGE = 10
+  const MAX_PAGES = 6
+
   const [occurrences, setOccurrences] = useState<OccurrenceProps[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     const fetchOccurrences = async (): Promise<void> => {
@@ -29,6 +33,32 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
 
     fetchOccurrences()
   }, [occurrences])
+
+  function getCurrentItems(): OccurrenceProps[] {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    return occurrences.slice(startIndex, endIndex)
+  }
+
+  function goToPrevPage(): void {
+    setCurrentPage((prevPage) => prevPage - 1)
+  }
+
+  function goToNextPage(): void {
+    if (currentPage < MAX_PAGES) {
+      setCurrentPage((prevPage) => prevPage + 1)
+    } else {
+      setCurrentPage(Math.ceil(occurrences.length / ITEMS_PER_PAGE))
+    }
+  }
+
+  function getTotalPages(): number {
+    return Math.ceil(occurrences.length / ITEMS_PER_PAGE)
+  }
+
+  function shouldDisplayPagination(): boolean {
+    return getTotalPages() > 1
+  }
 
   return (
     <main className="occurrences">
@@ -41,57 +71,72 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
         {occurrences.length === 0 ? (
           <p style={{ textAlign: 'center' }}>Nenhuma ocorrência foi encontrada.</p>
         ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>data</th>
-                <th>incidente</th>
-                <th>endereço</th>
-                <th>situação</th>
-              </tr>
-            </thead>
-            <tbody>
-              {occurrences.map((occurrence) => (
-                <tr key={occurrence.id}>
-                  <td>
-                    <Link
-                      to={`/editOccurrence/${occurrence.id}`}
-                      onClick={(): void => setIsActive(9)}
-                    >
-                      {format(
-                        new Date(`${occurrence.date}T${occurrence.time}`),
-                        'dd/MM/yyyy - HH:mm'
-                      )}
-                    </Link>
-                  </td>
-                  <td>
-                    <Link
-                      to={`/editOccurrence/${occurrence.id}`}
-                      onClick={(): void => setIsActive(9)}
-                    >
-                      {occurrence.incident}
-                    </Link>
-                  </td>
-                  <td>
-                    <Link
-                      to={`/editOccurrence/${occurrence.id}`}
-                      onClick={(): void => setIsActive(9)}
-                    >
-                      {occurrence.address}
-                    </Link>
-                  </td>
-                  <td>
-                    <Link
-                      to={`/editOccurrence/${occurrence.id}`}
-                      onClick={(): void => setIsActive(9)}
-                    >
-                      {occurrence.situation}
-                    </Link>
-                  </td>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>data</th>
+                  <th>incidente</th>
+                  <th>endereço</th>
+                  <th>situação</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {getCurrentItems().map((occurrence) => (
+                  <tr key={occurrence.id}>
+                    <td>
+                      <Link
+                        to={`/editOccurrence/${occurrence.id}`}
+                        onClick={(): void => setIsActive(9)}
+                      >
+                        {format(
+                          new Date(`${occurrence.date}T${occurrence.time}`),
+                          'dd/MM/yyyy - HH:mm'
+                        )}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/editOccurrence/${occurrence.id}`}
+                        onClick={(): void => setIsActive(9)}
+                      >
+                        {occurrence.incident}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/editOccurrence/${occurrence.id}`}
+                        onClick={(): void => setIsActive(9)}
+                      >
+                        {occurrence.address}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/editOccurrence/${occurrence.id}`}
+                        onClick={(): void => setIsActive(9)}
+                      >
+                        {occurrence.situation}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {shouldDisplayPagination() && (
+              <div className="pagination">
+                <button onClick={goToPrevPage} disabled={currentPage === 1}>
+                  Anterior
+                </button>
+                <span>
+                  Página {currentPage} de {getTotalPages()}
+                </span>
+                <button onClick={goToNextPage} disabled={currentPage >= getTotalPages()}>
+                  Próxima
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
     </main>
