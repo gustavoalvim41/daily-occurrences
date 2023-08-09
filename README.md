@@ -1,34 +1,28 @@
-# daily-occurrences
+## ☕ Sobre o Projeto
 
-An Electron application with React and TypeScript
+> Em breve
 
-## Recommended IDE Setup
+## 🚀 Tecnologias Utilizadas
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+> Em breve
 
-## Project Setup
+## 📚 Pré-requisitos
 
-### Install
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: Git e Node.js.
 
-```bash
-$ npm install
-```
+## 💾 Instalação
 
-### Development
+Siga as instruções abaixo:
+  ```
+  # Clone este repositório
+  $ git clone https://github.com/gustavoalvim41/daily-occurrences.git
 
-```bash
-$ npm run dev
-```
+  # Acesse a pasta do projeto no terminal/cmd
+  $ cd daily-occurrences
 
-### Build
+  # Instale as dependências
+  $ yarn
 
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+  # Execute este comando no terminal/cmd para iniciar o projeto
+  $ yarn dev
+  ```
