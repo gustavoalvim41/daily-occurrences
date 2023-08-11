@@ -25,7 +25,7 @@ function Occurrences({ setIsActive }: MenuProps): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    const fetchOccurrences = async (): Promise<void> => {
+    async function fetchOccurrences(): Promise<void> {
       const occurrences = await db.occurrences.toArray()
       setOccurrences(occurrences as OccurrenceProps[])
     }

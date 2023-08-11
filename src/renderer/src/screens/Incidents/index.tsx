@@ -20,7 +20,7 @@ function Incidents({ setIsActive }: MenuProps): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    const fetchIncidents = async (): Promise<void> => {
+    async function fetchIncidents(): Promise<void> {
       const incidents = await db.incidents.toArray()
       setIncidents(incidents as IncidentProps[])
     }

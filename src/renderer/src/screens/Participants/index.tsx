@@ -21,7 +21,7 @@ function Participants({ setIsActive }: MenuProps): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    const fetchParticipants = async (): Promise<void> => {
+    async function fetchParticipants(): Promise<void> {
       const participants = await db.participants.toArray()
       setParticipants(participants as ParticipantsProps[])
     }
