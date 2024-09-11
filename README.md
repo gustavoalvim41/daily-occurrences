@@ -1,10 +1,13 @@
 ## ☕ Sobre o Projeto
 
-> Em breve
+Durante meu estágio na Defesa Civil de Barretos, desenvolvi essa aplicação simples para o controle de ocorrências, incidentes e participantes. O objetivo principal foi fornecer uma ferramenta que facilitasse o registro das ocorrências atendidas pela secretaria.
 
 ## 🚀 Tecnologias Utilizadas
 
-> Em breve
+- Electron
+- TypeScript
+- Sass
+- Dexie
 
 ## 📚 Pré-requisitos
 
